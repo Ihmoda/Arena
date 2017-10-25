@@ -13,44 +13,53 @@
         $(document).ready(function(){
             
             $('button').hover(function(){
+                //img name is set in "temp" attribute of each button (attr is getter)
                 var img = $(this).attr("temp");
+                //use img to create a file path to the correct image
                 var string = "url(dojo_arena_photos/" + img + ")";
+                //set image background using css as setter
                 $("#wrapper").css("background-image", string);
-                console.log(img);
             }, function(){
+                //on hoverout, set background image to none.
                 $("#wrapper").css("background-image", 'none');
-                console.log("hover out");
             });
 
         $('button').click(function(){
+            //set image based on button selection (same as hover)
             var img = $(this).attr("temp");
             var string = "url(dojo_arena_photos/" + img + ")";
             $("#wrapper").css("background-image", string);
 
             $("#menu h1").text("Select Player");
+            //remove the HTML that held buttons
             $("#rows").html("");
+            //show the two selects
             $("#selectors").show();
 
         });
 
-
+        //listen for changes on select
         $('#player1').change(function(){
+            //value attribute in options buttons are set with png names
+            //set player var to the selected option value
             var player = $(this).val();
-            console.log(player);
             
+            //hide if the user selected "select ninja"
             if(player == 'none'){
                 $("#player1img").hide();
             } else {
+                //change src attribute to correct file location when player is selected
                 var p1str = "dojo_arena_photos/" + player;
                 $("#player1img").attr("src", p1str);
+                //show player image(hidden by default)
                 $("#player1img").show();
             }
 
         });
 
+        //see above
         $('#player2').change(function(){
             var player = $(this).val();
-            console.log(player);
             
             if(player == 'none'){
                 $("#player2img").hide();
@@ -63,10 +72,6 @@
         });
 
 
-
-
-
-            
         });
 
 
