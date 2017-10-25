@@ -14,7 +14,7 @@
             
             $('button').hover(function(){
                 //img name is set in "temp" attribute of each button (attr is getter)
-                var img = $(this).attr("temp");
+                var img = $(this).attr("value");
                 //use img to create a file path to the correct image
                 var string = "url(dojo_arena_photos/" + img + ")";
                 //set image background using css as setter
@@ -26,7 +26,7 @@
 
         $('button').click(function(){
             //set image based on button selection (same as hover)
-            var img = $(this).attr("temp");
+            var img = $(this).attr("value");
             var string = "url(dojo_arena_photos/" + img + ")";
             $("#wrapper").css("background-image", string);
 
@@ -89,14 +89,14 @@
             <div id="options">
                 <div id="rows">
                     <div class="btnrow">
-                        <button temp="beach.jpg">Beach</button>
-                        <button temp="earth.jpg">Planet</button>
-                        <button temp="dojo.jpg">Dojo</button>
+                        <button value="beach.jpg">Beach</button>
+                        <button value="earth.jpg">Planet</button>
+                        <button value="dojo.jpg">Dojo</button>
                     </div>
                     <div class="btnrow">
-                        <button temp="forest.jpg">Forest</button>
-                        <button temp="matrix.jpg">Matrix</button>
-                        <button temp="snow.jpg">Snow</button>
+                        <button value="forest.jpg">Forest</button>
+                        <button value="matrix.jpg">Matrix</button>
+                        <button value="snow.jpg">Snow</button>
                     </div>
                 </div>
 
