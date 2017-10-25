@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arena</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+    
+        $(document).ready(function(){
+            
+            $('button').hover(function(){
+                var img = $(this).attr("temp");
+                var string = "url(dojo_arena_photos/" + img + ")";
+                $("#wrapper").css("background-image", string);
+                console.log(img);
+            }, function(){
+                $("#wrapper").css("background-image", 'none');
+                console.log("hover out");
+            });
+
+        $('button').click(function(){
+            var img = $(this).attr("temp");
+            var string = "url(dojo_arena_photos/" + img + ")";
+            $("#wrapper").css("background-image", string);
+
+            $("#menu h1").text("Select Player");
+            $("#rows").html("");
+            $("#selectors").show();
+
+        });
+
+
+        $('#player1').change(function(){
+            var player = $(this).val();
+            console.log(player);
+            
+            if(player == 'none'){
+                $("#player1img").hide();
+            } else {
+                var p1str = "dojo_arena_photos/" + player;
+                $("#player1img").attr("src", p1str);
+                $("#player1img").show();
+            }
+
+        });
+
+        $('#player2').change(function(){
+            var player = $(this).val();
+            console.log(player);
+            
+            if(player == 'none'){
+                $("#player2img").hide();
+            } else {
+                var p2str = "dojo_arena_photos/" + player;
+                $("#player2img").attr("src", p2str);
+                $("#player2img").show();
+            }
+
+        });
+
+
+
+
+
+            
+        });
+
+
+    </script>
+    
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <div id="menu">
+
+        <h1>Select Arena</h1>
+
+            <div id="options">
+                <div id="rows">
+                    <div class="btnrow">
+                        <button temp="beach.jpg">Beach</button>
+                        <button temp="earth.jpg">Planet</button>
+                        <button temp="dojo.jpg">Dojo</button>
+                    </div>
+                    <div class="btnrow">
+                        <button temp="forest.jpg">Forest</button>
+                        <button temp="matrix.jpg">Matrix</button>
+                        <button temp="snow.jpg">Snow</button>
+                    </div>
+                </div>
+
+                <div id="selectors">
+                        <select id="player1">
+                            <option value="none">Select Ninja</option>
+                            <option value="mikey.png">Michelanegelo</option>
+                            <option value="leo.png">Leonardo</option>
+                            <option value="raphael.png">Raphael</option>
+                            <option value="donny.png">Donatello</option>
+                        </select>
+                        <select id="player2">
+                            <option value="none">Select Ninja</option>
+                            <option value="mikey.png">Michelanegelo</option>
+                            <option value="leo.png">Leonardo</option>
+                            <option value="raphael.png">Raphael</option>
+                            <option value="donny.png">Donatello</option>
+                        </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="imgcontainer">
+            <img id="player1img" src="dojo_arena_photos/mikey.png" alt="ninja turtle 1.png">
+        </div>
+        <div class="imgcontainer">
+            <img id="player2img" src="dojo_arena_photos/mikey.png" alt="ninja turtle 1.png">
+        </div>
+        
+
+    </div>
+
+
+    
+</body>
+</html>
